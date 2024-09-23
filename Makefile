@@ -16,8 +16,8 @@ dbshell: 				# Connect to database shell using `web` container
 fix-permissions:		# Fix volume permissions on host machine
 	userID=$${UID:-1000}
 	groupID=$${UID:-1000}
-	mkdir -p docker/data/web docker/data/db
-	chown -R $$userID:$$groupID docker/data/web docker/data/db
+	mkdir -p docker/data/web docker/data/db docker/data/db12 docker/data/db13 docker/data/db14 docker/data/db15
+	chown -R $$userID:$$groupID docker/data/web docker/data/db docker/data/db12 docker/data/db13 docker/data/db14 docker/data/db15
 	touch docker/env/web.local docker/env/db.local
 
 help:					# List all make commands
