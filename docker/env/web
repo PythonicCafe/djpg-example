@@ -1,0 +1,14 @@
+# Environment variables for `web` service
+
+ADMINS="App Admin|admin@myapp.example.com"
+ALLOWED_HOSTS="localhost,127.0.0.1,[::1]"
+CSRF_TRUSTED_ORIGINS="http://localhost,http://127.0.0.1"
+DATABASE_URL="postgres://postgres:verysecret@db:5432/postgres"
+DATABASE_CONN_MAX_AGE=3600
+DATA_DIR="/data"
+DEBUG="True"
+DEBUG_SQL="True"
+DEV_BUILD="True"
+DJANGO_SETTINGS_MODULE=project.settings
+GUNICORN_WORKERS=1
+SECRET_KEY="12345qwert67890yuiop12345qwert67890yuiop12345qwert67890yuiop12345qwert67890yuiop"
