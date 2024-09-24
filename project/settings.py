@@ -38,17 +38,17 @@ CSRF_TRUSTED_ORIGINS = config("CSRF_TRUSTED_ORIGINS", cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
-    # Django apps
+    # Django apps:
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
-    # Third-party apps
+    # Third-party apps:
     "django_extensions",
-    # Project apps
+    # Project apps:
+    "dataset",
 ]
 
 MIDDLEWARE = [
@@ -93,6 +93,7 @@ WSGI_APPLICATION = "project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+DATABASE_URL = config("DATABASE_URL")
 DATABASES = {
     "default": dj_database_url.config(),
 }

@@ -1,4 +1,4 @@
-# djpg_sample
+# djpg-example
 
 You need docker compose to run this project.
 
