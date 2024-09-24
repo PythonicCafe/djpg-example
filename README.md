@@ -1,6 +1,6 @@
 # djpg-example
 
-You need docker compose to run this project.
+This is a sample Django project showing some postgres features. You need docker compose to run this project.
 
 Running all services:
 
@@ -38,6 +38,24 @@ make lint
 
 For more commands check `make help`.
 
+
+## Importing data
+
+In order to be able to run `import_data` management command you need to download the file
+[empresa.csv.gz](https://data.brasil.io/mirror/socios-brasil/2024-09/djangocon-us/empresa.csv.gz) (6.7GB).
+
+To download and import data, you could run `make bash` and then, inside the container:
+
+```shell
+url="https://data.brasil.io/mirror/socios-brasil/2024-09/djangocon-us/empresa.csv.gz"
+csv_filename="/data/empresa.csv.gz"
+wget -c -t 0 -O "$csv_filename" "$url"
+python manage.py import_data "copy" "Empresa1" "$csv_filename"
+python manage.py import_data "copy" "Empresa2" "$csv_filename"
+python manage.py import_data "copy" "Empresa3" "$csv_filename"
+python manage.py import_data "copy" "Empresa4" "$csv_filename"
+python manage.py import_data "copy" "Empresa5" "$csv_filename"
+```
 
 ## Customizing environment variables
 
