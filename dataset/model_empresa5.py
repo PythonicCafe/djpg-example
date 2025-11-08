@@ -113,7 +113,12 @@ class Empresa5(models.Model):
         indexes = (
             pg_indexes.GinIndex(
                 SearchVector("razao_social", "nome_fantasia", config="portuguese"),
-                fastupdate=False,
+                fastupdate=False,  # Slower queries if enabled, but faster updates
                 name="empresa_search_idx",
             ),
         )
+# NOTE regarding `fastupdate` on `GinIndex`: it's going to be usually faster on inserts but will add an overhead when
+# querying the index. Choosing between one or another depends on the response time you need for the queries and the
+# number of writes. For this case, where I bulk-inserted all the data once and didn't change it afterwards, probably
+# using `fastupdate=False` would be the best option (and to make the index update faster, I could have disabled the
+# indexes before running the COPY command and then reindexing the table afterwards).
